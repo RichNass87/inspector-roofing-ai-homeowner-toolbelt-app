@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#246b4f">
+    <meta name="application-name" content="AI Homeowner's Tool Belt">
+    <meta name="description" content="A local-first workspace for organizing roof inspection notes, documents, quotes, and next-step questions.">
+    <title>AI Homeowner's Tool Belt</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <main class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="icons/icon.svg" alt="">
+          <div>
+            <h1>AI Homeowner's Tool Belt</h1>
+            <p>Inspector Roofing and Restoration</p>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Workspace">
+          <button class="nav-item is-active" type="button" data-view="inspection">Inspection</button>
+          <button class="nav-item" type="button" data-view="quotes">Quotes</button>
+          <button class="nav-item" type="button" data-view="evidence">Evidence</button>
+          <button class="nav-item" type="button" data-view="brief">AI Brief</button>
+        </nav>
+        <div class="summary">
+          <span>Completion</span>
+          <strong id="completion">0%</strong>
+          <div class="meter" aria-hidden="true"><span id="meterFill"></span></div>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="toolbar">
+          <div>
+            <h2 id="viewTitle">Inspection</h2>
+            <p id="saveStatus">Saved locally</p>
+          </div>
+          <div class="toolbar-actions">
+            <button class="ghost" type="button" id="resetAll">Reset</button>
+            <button class="primary" type="button" id="copyBriefTop">Copy Brief</button>
+          </div>
+        </header>
+
+        <section class="view is-active" id="inspection">
+          <div class="grid two">
+            <label class="field">
+              <span>Property</span>
+              <input id="property" type="text" placeholder="Address or job name">
+            </label>
+            <label class="field">
+              <span>Storm or leak date</span>
+              <input id="eventDate" type="date">
+            </label>
+          </div>
+          <div class="check-grid" id="checklist"></div>
+          <label class="field">
+            <span>Inspection notes</span>
+            <textarea id="notes" rows="7" placeholder="Roof age, slope, attic findings, leak path, access limits, and photo numbers."></textarea>
+          </label>
+        </section>
+
+        <section class="view" id="quotes">
+          <div class="section-line">
+            <h3>Contractor Compare</h3>
+            <button class="square" type="button" id="addQuote" aria-label="Add quote">+</button>
+          </div>
+          <div class="quote-list" id="quoteList"></div>
+        </section>
+
+        <section class="view" id="evidence">
+          <div class="grid three">
+            <label class="field">
+              <span>Photos taken</span>
+              <input id="photoCount" type="number" min="0" step="1" placeholder="0">
+            </label>
+            <label class="field">
+              <span>Documents</span>
+              <input id="documentCount" type="number" min="0" step="1" placeholder="0">
+            </label>
+            <label class="field">
+              <span>Urgency</span>
+              <select id="urgency">
+                <option value="Routine">Routine</option>
+                <option value="Soon">Soon</option>
+                <option value="Emergency">Emergency</option>
+              </select>
+            </label>
+          </div>
+          <div class="evidence-grid" id="evidenceList"></div>
+        </section>
+
+        <section class="view" id="brief">
+          <div class="grid two">
+            <label class="field">
+              <span>Goal</span>
+              <select id="goal">
+                <option value="claim">Claim packet</option>
+                <option value="repair">Repair scope</option>
+                <option value="quote">Quote review</option>
+                <option value="maintenance">Maintenance plan</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Main concern</span>
+              <input id="concern" type="text" placeholder="Leak, hail, wind, aging shingles">
+            </label>
+          </div>
+          <textarea id="briefOutput" class="brief-output" rows="14" readonly></textarea>
+          <div class="button-row">
+            <button class="primary" type="button" id="copyBrief">Copy Brief</button>
+            <button class="ghost" type="button" id="downloadBrief">Download .txt</button>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <span>Educational organization tool. It does not replace an inspection or decide coverage, claims, legal rights, or payment.</span>
+      <a href="https://inspector-roofing.com/privacy-policy/">Privacy</a>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
