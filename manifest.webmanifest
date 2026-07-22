@@ -1,0 +1,26 @@
+{
+  "name": "AI Homeowner's Tool Belt",
+  "short_name": "Homeowner Belt",
+  "description": "Local-first homeowner inspection, quote comparison, evidence, and AI brief workspace.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en-US",
+  "orientation": "any",
+  "display": "standalone",
+  "background_color": "#f8faf7",
+  "theme_color": "#246b4f",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
